@@ -30,9 +30,10 @@ export function MonthlySummary({
 }) {
   const monthlyData = forecastRows.reduce((acc, row) => {
     const month = row.forecastMonth || toMonthKey(row.forecastMonth);
+    const val = Math.round(row.predictedSellOut);
     const existing = acc.find((i) => i.month === month);
-    if (existing) existing.total += row.predictedSellOut;
-    else acc.push({ month, total: row.predictedSellOut });
+    if (existing) existing.total += val;
+    else acc.push({ month, total: val });
     return acc;
   }, [] as { month: string; total: number }[]);
 
@@ -47,7 +48,7 @@ export function MonthlySummary({
   const brandAgg: Record<string, number> = {};
   forecastRows.forEach((r) => {
     const key = r.plantLocation || "Unknown";
-    brandAgg[key] = (brandAgg[key] ?? 0) + r.predictedSellOut;
+    brandAgg[key] = (brandAgg[key] ?? 0) + Math.round(r.predictedSellOut);
   });
   const brandComparison = Object.entries(brandAgg)
     .map(([brand, total]) => ({ brand, current: total, lastYear: total * 0.9, change: 0 }))
@@ -55,13 +56,13 @@ export function MonthlySummary({
     .slice(0, 4)
     .map((item) => ({
       ...item,
-      change: item.lastYear ? ((item.current - item.lastYear) / item.lastYear) * 100 : 0,
+      change: item.lastYear ? Math.round(((item.current - item.lastYear) / item.lastYear) * 100) : 0,
     }));
 
   const packAgg: Record<string, number> = {};
   forecastRows.forEach((r) => {
     const key = r.sku || "Unknown";
-    packAgg[key] = (packAgg[key] ?? 0) + r.predictedSellOut;
+    packAgg[key] = (packAgg[key] ?? 0) + Math.round(r.predictedSellOut);
   });
   const packComparison = Object.entries(packAgg)
     .map(([pack, total]) => ({ pack, current: total, lastYear: total * 0.9, change: 0 }))
@@ -69,14 +70,14 @@ export function MonthlySummary({
     .slice(0, 4)
     .map((item) => ({
       ...item,
-      change: item.lastYear ? ((item.current - item.lastYear) / item.lastYear) * 100 : 0,
+      change: item.lastYear ? Math.round(((item.current - item.lastYear) / item.lastYear) * 100) : 0,
     }));
 
   const kpis = [
     {
       title: "Total Predicted Sell-Out (Current Month)",
-      value: currentTotal.toLocaleString(),
-      change: prevTotal ? ((currentTotal - prevTotal) / prevTotal) * 100 : undefined,
+      value: Math.round(currentTotal).toLocaleString(),
+      change: prevTotal ? Math.round(((currentTotal - prevTotal) / prevTotal) * 100) : undefined,
       changeLabel: "vs previous month",
       trend: currentTotal >= prevTotal ? ("up" as const) : ("down" as const),
     },
@@ -96,16 +97,16 @@ export function MonthlySummary({
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Monthly Demand Forecast (Jul 25 - Jan 26)
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
+            Monthly Demand Forecast (Dec 25 - Feb 26)
           </h3>
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={monthlyData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="month" />
-              <YAxis hide />
-              <Tooltip />
+              <YAxis tickFormatter={(v) => Math.round(Number(v)).toLocaleString()} />
+              <Tooltip formatter={(v: any) => Math.round(Number(v)).toLocaleString()} />
               <Legend />
               <Line
                 type="monotone"
@@ -147,23 +148,23 @@ export function MonthlySummary({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             Brand-wise Comparison
           </h3>
           <div className="space-y-3">
             {brandComparison.map((item) => (
               <div key={item.brand} className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium text-white">
                   {item.brand}
                 </span>
                 <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600">
-                    {item.current.toLocaleString()}
+                  <span className="text-sm text-white/80">
+                    {Math.round(item.current).toLocaleString()}
                   </span>
                   <span
                     className={`text-sm font-medium ${
-                      item.change > 0 ? "text-red-600" : "text-red-800"
+                      item.change > 0 ? "text-red-300" : "text-red-200"
                     }`}
                   >
                     {item.change > 0 ? "+" : ""}
@@ -175,23 +176,23 @@ export function MonthlySummary({
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             Pack-wise Comparison
           </h3>
           <div className="space-y-3">
             {packComparison.map((item) => (
               <div key={item.pack} className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium text-white">
                   {item.pack}
                 </span>
                 <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600">
-                    {item.current.toLocaleString()}
+                  <span className="text-sm text-white/80">
+                    {Math.round(item.current).toLocaleString()}
                   </span>
                   <span
                     className={`text-sm font-medium ${
-                      item.change > 0 ? "text-red-600" : "text-red-800"
+                      item.change > 0 ? "text-red-300" : "text-red-200"
                     }`}
                   >
                     {item.change > 0 ? "+" : ""}

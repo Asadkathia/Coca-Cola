@@ -74,20 +74,13 @@ export function ForecastData({ forecastRows }: { forecastRows: DemandForecastRow
       </div>
 
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+          <h3 className="text-lg font-semibold text-white">
             Forecast Data
           </h3>
           <div className="flex items-center space-x-3">
             <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
-            >
-              <Edit className="h-4 w-4" />
-              <span>Modify AI Forecast</span>
-            </button>
-            <button
-              className="flex items-center space-x-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 border border-white/30 text-white rounded-md hover:bg-red-700/60 transition-colors"
             >
               <Download className="h-4 w-4" />
               <span>Download CSV</span>

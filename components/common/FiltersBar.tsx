@@ -60,8 +60,8 @@ export function FiltersBar({ onFiltersChange }: FiltersBarProps) {
 
   return (
     <div className="glass p-4 mb-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-        <div className="lg:col-span-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+        <div className="lg:col-span-2 col-span-1">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Search
           </label>

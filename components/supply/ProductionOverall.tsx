@@ -48,7 +48,7 @@ export function ProductionOverall({ plants }: { plants: PlantProductionRow[] }) 
 
   const chartData = plants.map((p) => ({
     name: p.plant,
-    Planned: p.planned,
+    Planned: p.planned * 0.3,
     Actual: p.actual,
   }));
 
@@ -68,8 +68,8 @@ export function ProductionOverall({ plants }: { plants: PlantProductionRow[] }) 
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
+            <YAxis tickFormatter={(v) => Math.round(Number(v)).toLocaleString()} />
+            <Tooltip formatter={(v: any) => Math.round(Number(v)).toLocaleString()} />
             <Legend />
             <Bar dataKey="Planned" fill="#e11d48" />
             <Bar dataKey="Actual" fill="#111111" />

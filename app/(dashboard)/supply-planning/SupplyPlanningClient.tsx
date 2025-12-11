@@ -10,7 +10,7 @@ import { SkuProduction } from "@/components/supply/SkuProduction";
 import { InventoryStatus } from "@/components/supply/InventoryStatus";
 
 const tabs = [
-  { id: "overall", label: "Production (Yesterday – Overall)" },
+  { id: "overall", label: "Production Overall" },
   { id: "plant", label: "Plant-Wise Production" },
   { id: "workcentre", label: "Work Centre-Wise Production" },
   { id: "sku", label: "SKU-Wise Production" },
