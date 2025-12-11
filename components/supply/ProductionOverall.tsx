@@ -60,8 +60,8 @@ export function ProductionOverall({ plants }: { plants: PlantProductionRow[] }) 
         ))}
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h3 className="text-lg font-semibold text-white mb-4">
           Planned vs Actual Production
         </h3>
         <ResponsiveContainer width="100%" height={300}>

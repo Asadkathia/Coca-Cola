@@ -54,7 +54,7 @@ export function ShipmentStatus({ shipments }: { shipments: ShipmentStatusRow[] }
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">
+      <h3 className="text-lg font-semibold text-white">
         Shipment Status Breakdown
       </h3>
 
@@ -65,8 +65,8 @@ export function ShipmentStatus({ shipments }: { shipments: ShipmentStatusRow[] }
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-md font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h4 className="text-md font-semibold text-white mb-4">
             Status Distribution
           </h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -95,8 +95,8 @@ export function ShipmentStatus({ shipments }: { shipments: ShipmentStatusRow[] }
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-md font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h4 className="text-md font-semibold text-white mb-4">
             Shipments by Warehouse
           </h4>
           <ResponsiveContainer width="100%" height={300}>

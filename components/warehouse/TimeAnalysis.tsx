@@ -21,12 +21,12 @@ export function TimeAnalysis({ metrics }: { metrics: WarehouseMetrics[] }) {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">
+      <h3 className="text-lg font-semibold text-white">
         Time Spent on Warehouse Operations
       </h3>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h4 className="text-md font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h4 className="text-md font-semibold text-white mb-4">
           Operation Efficiency by Warehouse
         </h4>
         <ResponsiveContainer width="100%" height={300}>

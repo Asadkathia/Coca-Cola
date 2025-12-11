@@ -125,32 +125,35 @@ export function ForecastData({ forecastRows }: { forecastRows: DemandForecastRow
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200">
               {pagedData.map((row, index) => (
-                <tr key={`${row.sku}-${index}`} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr
+                  key={`${row.sku}-${index}`}
+                  className="transition-colors hover:bg-red-700 hover:text-white"
+                >
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                     {row.sku}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.brand}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.flavor}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.packageSize}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.distributor}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.plantLocation}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.forecastMonth}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">
-                    {row.predictedSellOut.toLocaleString()}
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white font-medium">
+                    {row.predictedSellOut.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                   </td>
                 </tr>
               ))}

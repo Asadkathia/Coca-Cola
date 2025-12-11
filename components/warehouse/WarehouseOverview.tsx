@@ -30,7 +30,7 @@ export function WarehouseOverview({ metrics }: { metrics: WarehouseMetrics[] }) 
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">Warehouse Overview</h3>
+      <h3 className="text-lg font-semibold text-white">Warehouse Overview</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {kpiCards.map((kpi, index) => (
@@ -38,8 +38,8 @@ export function WarehouseOverview({ metrics }: { metrics: WarehouseMetrics[] }) 
         ))}
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h4 className="text-md font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h4 className="text-md font-semibold text-white mb-4">
           Total Weight Processed vs Number of Shipments
         </h4>
         <ResponsiveContainer width="100%" height={300}>

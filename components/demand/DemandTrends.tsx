@@ -65,13 +65,13 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="glass p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">Demand Forecast (By Plant/Brand)</h3>
+          <h3 className="text-lg font-semibold text-white">Demand Forecast (By Plant/Brand)</h3>
           <select
             value={selectedFilter}
             onChange={(e) => setSelectedFilter(e.target.value as "brand" | "plant")}
-            className="px-3 py-2 border border-gray-300 rounded-md"
+            className="px-3 py-2 rounded-md bg-red-600 text-white border border-red-500 shadow-lg"
           >
             <option value="plant">By Plant</option>
             <option value="brand">By Brand</option>
@@ -98,8 +98,8 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
         </ResponsiveContainer>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h3 className="text-lg font-semibold text-white mb-4">
           Year-on-Year Growth
         </h3>
         <ResponsiveContainer width="100%" height={300}>
@@ -117,8 +117,8 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
             .filter((item) => item.yoyChange !== undefined)
             .map((item) => (
               <div key={item.year} className="flex items-center justify-between">
-                <span className="text-sm text-gray-700">{item.year}</span>
-                <span className="text-sm font-medium text-red-700">
+                <span className="text-sm text-white/80">{item.year}</span>
+                <span className="text-sm font-medium text-red-400">
                   +{item.yoyChange}% YoY
                 </span>
               </div>
@@ -127,8 +127,8 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             By Flavor
           </h3>
           <ResponsiveContainer width="100%" height={250}>
@@ -142,8 +142,8 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             By Package Size
           </h3>
           <ResponsiveContainer width="100%" height={250}>
@@ -157,8 +157,8 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             By Plant
           </h3>
           <ResponsiveContainer width="100%" height={250}>

@@ -56,56 +56,56 @@ export function FinancialTable() {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">Financial Table</h3>
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <h3 className="text-lg font-semibold text-white">Financial Table</h3>
+      <div className="glass overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-700">
+          <thead className="bg-transparent">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Pack
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 Total UC
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 GSR
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 NSR
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 COM
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 MOH
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 COGs
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 GP
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 GSR % NSR
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                 GP % NSR
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-700">
             {data.map((row, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+              <tr key={index} className="transition-colors hover:bg-red-700 hover:text-white">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                   {row.pack}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                   {row.totalUC.toLocaleString()}
                 </td>
                 {(["gsr", "nsr", "com", "moh", "cogs"] as const).map((field) => (
                   <td
                     key={field}
-                    className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 cursor-pointer hover:bg-red-50"
+                    className="px-6 py-4 whitespace-nowrap text-sm text-white/90 cursor-pointer hover:bg-red-800"
                     onClick={() => handleCellClick(row.pack, field, row[field])}
                   >
                     {editingCell?.pack === row.pack && editingCell?.field === field ? (
@@ -118,7 +118,7 @@ export function FinancialTable() {
                           if (e.key === "Enter") handleSave();
                           if (e.key === "Escape") handleCancel();
                         }}
-                        className="w-24 px-2 py-1 border border-red-500 rounded"
+                        className="w-24 px-2 py-1 border border-red-500 rounded bg-black text-white"
                         autoFocus
                       />
                     ) : (
@@ -126,13 +126,13 @@ export function FinancialTable() {
                     )}
                   </td>
                 ))}
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                   ₨{row.gp.toLocaleString()}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                   {row.gsrPercentNsr.toFixed(0)}%
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-700">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-red-400">
                   {row.gpPercentNsr.toFixed(0)}%
                 </td>
               </tr>
