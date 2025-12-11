@@ -35,11 +35,11 @@ export function FinancialCharts() {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">Financial Charts</h3>
+      <h3 className="text-lg font-semibold text-white">Financial Charts</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-md font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h4 className="text-md font-semibold text-white mb-4">
             Gross Profit by Pack
           </h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -54,8 +54,8 @@ export function FinancialCharts() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-md font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h4 className="text-md font-semibold text-white mb-4">
             GSR vs NSR
           </h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -73,15 +73,15 @@ export function FinancialCharts() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+        <div className="glass p-6">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-md font-semibold text-gray-900">
+            <h4 className="text-md font-semibold text-white">
               Cost Breakdown
             </h4>
             <select
               value={selectedPack}
               onChange={(e) => setSelectedPack(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md text-sm"
+              className="px-3 py-2 rounded-md bg-red-600 text-white border border-red-500 text-sm"
             >
               {mockFinancialData.map((row) => (
                 <option key={row.pack} value={row.pack}>
@@ -116,8 +116,8 @@ export function FinancialCharts() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-md font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h4 className="text-md font-semibold text-white mb-4">
             Profit Margin Analysis (GP % NSR)
           </h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -133,8 +133,8 @@ export function FinancialCharts() {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h4 className="text-md font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h4 className="text-md font-semibold text-white mb-4">
           Trend Analysis of Key Metrics
         </h4>
         <ResponsiveContainer width="100%" height={400}>

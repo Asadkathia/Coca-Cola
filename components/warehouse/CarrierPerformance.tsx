@@ -40,12 +40,12 @@ export function CarrierPerformance({ carriers }: { carriers: CarrierPerformanceR
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">
+      <h3 className="text-lg font-semibold text-white">
         Shipment Volume vs Carrier Performance
       </h3>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h4 className="text-md font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h4 className="text-md font-semibold text-white mb-4">
           Total Shipments by Carrier
         </h4>
         <ResponsiveContainer width="100%" height={300}>
@@ -60,8 +60,8 @@ export function CarrierPerformance({ carriers }: { carriers: CarrierPerformanceR
         </ResponsiveContainer>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h4 className="text-md font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h4 className="text-md font-semibold text-white mb-4">
           Shipments by Carrier and Warehouse
         </h4>
         <ResponsiveContainer width="100%" height={300}>

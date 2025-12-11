@@ -42,48 +42,48 @@ export function ProfitabilityAnalysis() {
 
   return (
     <div className="space-y-6">
-      <h3 className="text-lg font-semibold text-gray-900">
+      <h3 className="text-lg font-semibold text-white">
         Profitability Break-Even Analysis
       </h3>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-sm font-medium text-gray-600 mb-2">
+        <div className="glass p-6">
+          <h4 className="text-sm font-medium text-white/80 mb-2">
             Product with Highest Margin
           </h4>
-          <p className="text-lg font-semibold text-gray-900">{highestMargin.pack}</p>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-lg font-semibold text-white">{highestMargin.pack}</p>
+          <p className="text-sm text-white/80 mt-1">
             GP % NSR: {highestMargin.gpPercentNsr.toFixed(0)}%
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-sm font-medium text-gray-600 mb-2">
+        <div className="glass p-6">
+          <h4 className="text-sm font-medium text-white/80 mb-2">
             Product with Highest Cost to Produce
           </h4>
-          <p className="text-lg font-semibold text-gray-900">{highestCost.pack}</p>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-lg font-semibold text-white">{highestCost.pack}</p>
+          <p className="text-sm text-white/80 mt-1">
             Total Cost: ₨
             {(highestCost.com + highestCost.moh + highestCost.cogs).toLocaleString()}
           </p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h4 className="text-sm font-medium text-gray-600 mb-2">
+        <div className="glass p-6">
+          <h4 className="text-sm font-medium text-white/80 mb-2">
             Largest GSR-NSR Discrepancy
           </h4>
-          <p className="text-lg font-semibold text-gray-900">
+          <p className="text-lg font-semibold text-white">
             {largestDiscrepancy.pack}
           </p>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm text-white/80 mt-1">
             Difference: ₨
             {Math.abs(largestDiscrepancy.gsr - largestDiscrepancy.nsr).toLocaleString()}
           </p>
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h4 className="text-md font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h4 className="text-md font-semibold text-white mb-4">
           Break-Even Analysis: NSR vs Total Cost
         </h4>
         <ResponsiveContainer width="100%" height={400}>
@@ -115,7 +115,7 @@ export function ProfitabilityAnalysis() {
             />
           </LineChart>
         </ResponsiveContainer>
-        <p className="text-sm text-gray-500 mt-4">
+        <p className="text-sm text-white/70 mt-4">
           The intersection point indicates where NSR exceeds Total Cost (break-even
           point).
         </p>

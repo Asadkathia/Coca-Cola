@@ -57,7 +57,7 @@ export function AlertsList({ alerts }: AlertsListProps) {
                   {alert.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md"
+                      className="px-2 py-1 bg-red-600 text-white text-xs rounded-md border border-red-500 shadow-sm"
                     >
                       {tag}
                     </span>

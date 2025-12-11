@@ -49,7 +49,7 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">
+        <h3 className="text-lg font-semibold text-white">
           Plant-Wise Production
         </h3>
         <button
@@ -61,41 +61,41 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
         </button>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <div className="glass p-6">
         <div className="overflow-x-auto mb-6">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-transparent">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Plant
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Planned
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Actual
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
                   Gap
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-700">
               {data.map((row, index) => (
-                <tr key={index} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr key={index} className="transition-colors hover:bg-red-700 hover:text-white">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                     {row.plant}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.planned.toLocaleString()}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white/90">
                     {row.actual.toLocaleString()}
                   </td>
                   <td
-                  className={`px-6 py-4 whitespace-nowrap text-sm font-medium ${
-                    row.gap >= 0 ? "text-red-600" : "text-red-800"
-                  }`}
+                    className={`px-6 py-4 whitespace-nowrap text-sm font-medium ${
+                      row.gap >= 0 ? "text-white" : "text-white"
+                    }`}
                   >
                     {row.gap >= 0 ? "+" : ""}
                     {row.gap.toLocaleString()}
@@ -121,8 +121,8 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="glass p-6 max-w-md w-full">
+            <h3 className="text-lg font-semibold text-white mb-4">
               Adjust Production Schedule
             </h3>
             <div className="space-y-4">
@@ -133,7 +133,7 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
                 <select
                   value={selectedPlant}
                   onChange={(e) => setSelectedPlant(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-white/30 rounded-md bg-white/10 text-white"
                 >
                   <option value="">Select Plant</option>
                   {data.map((row) => (
@@ -151,7 +151,7 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
                   type="number"
                   value={newPlanned}
                   onChange={(e) => setNewPlanned(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-white/30 rounded-md bg-white/10 text-white"
                 />
               </div>
               <div>
@@ -162,7 +162,7 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
                   value={reason}
                   onChange={(e) => setReason(e.target.value)}
                   rows={3}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-white/30 rounded-md bg-white/10 text-white"
                 />
               </div>
               <div className="flex justify-end space-x-3">
@@ -173,7 +173,7 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
                     setNewPlanned("");
                     setReason("");
                   }}
-                  className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                  className="px-4 py-2 border border-white/30 rounded-md text-white hover:bg-red-700/40"
                 >
                   Cancel
                 </button>
