@@ -84,9 +84,9 @@ export function DemandTrends({ forecastRows }: { forecastRows: DemandForecastRow
             )}
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
+            <XAxis dataKey="forecastMonth" />
+            <YAxis tickFormatter={(v) => Math.round(Number(v)).toLocaleString()} />
+            <Tooltip formatter={(v: any) => Math.round(Number(v)).toLocaleString()} />
             <Legend />
             <Line
               type="monotone"

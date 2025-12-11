@@ -48,7 +48,7 @@ export function PlantProduction({ plants }: { plants: PlantProductionRow[] }) {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <h3 className="text-lg font-semibold text-white">
           Plant-Wise Production
         </h3>

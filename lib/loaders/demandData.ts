@@ -18,10 +18,9 @@ const excelSerialToMonth = (serial: any) => {
   return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
 };
 
-type RowShape = Record<string, any>;
-
-const allowedPlants = new Set(["Lahore Plant", "Gujranwala Plant", "Faisalabad Plant"]);
 const inTargetWindow = (month: string) => month >= "2025-12" && month <= "2026-02";
+
+type RowShape = Record<string, any>;
 
 function mapForecastRows(rows: RowShape[]): DemandForecastRow[] {
   return rows
@@ -47,8 +46,7 @@ function mapForecastRows(rows: RowShape[]): DemandForecastRow[] {
       (r) =>
         r.predictedSellOut > 0 &&
         r.forecastMonth !== "Unknown" &&
-        inTargetWindow(r.forecastMonth) &&
-        allowedPlants.has(r.plantLocation)
+        inTargetWindow(r.forecastMonth)
     );
 }
 
@@ -76,8 +74,7 @@ function mapActualRows(rows: RowShape[]): DemandForecastRow[] {
       (r) =>
         r.predictedSellOut > 0 &&
         r.forecastMonth !== "Unknown" &&
-        inTargetWindow(r.forecastMonth) &&
-        allowedPlants.has(r.plantLocation)
+        inTargetWindow(r.forecastMonth)
     );
 }
 

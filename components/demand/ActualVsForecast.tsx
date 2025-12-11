@@ -61,16 +61,16 @@ export function ActualVsForecast({
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <div className="glass p-6">
+        <h3 className="text-lg font-semibold text-white mb-4">
           Actual vs Forecasted Demand
         </h3>
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={comparisonData}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
+            <YAxis tickFormatter={(v) => Math.round(Number(v)).toLocaleString()} />
+            <Tooltip formatter={(v: any) => Math.round(Number(v)).toLocaleString()} />
             <Legend />
             <Bar dataKey="forecasted" fill="#e11d48" name="Forecasted" />
             <Bar dataKey="actual" fill="#111111" name="Actual" />
@@ -79,34 +79,34 @@ export function ActualVsForecast({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <div className="glass p-6">
+            <h3 className="text-lg font-semibold text-white mb-4">
               Error Metrics
             </h3>
             <div className="space-y-4">
               <div>
-                <p className="text-sm text-gray-600">MAPE</p>
-                <p className="text-2xl font-semibold text-gray-900">
+                <p className="text-sm text-white/80">MAPE</p>
+                <p className="text-2xl font-semibold text-white">
                   {mape === undefined ? "N/A" : `${mape.toFixed(0)}%`}
                 </p>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-white/70 mt-1">
                   Mean Absolute Percentage Error
                 </p>
               </div>
               <div>
-                <p className="text-sm text-gray-600">RMSE</p>
-                <p className="text-2xl font-semibold text-gray-900">
+                <p className="text-sm text-white/80">RMSE</p>
+                <p className="text-2xl font-semibold text-white">
                   {rmse === undefined ? "N/A" : rmse.toFixed(0)}
                 </p>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-white/70 mt-1">
                   Root Mean Square Error
                 </p>
               </div>
             </div>
           </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+        <div className="glass p-6">
+          <h3 className="text-lg font-semibold text-white mb-4">
             Forecast Adjustments Tracking
           </h3>
           <div className="overflow-x-auto">

@@ -22,7 +22,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col w-64 text-white h-screen fixed left-0 top-0 px-3 pt-4 pb-6">
+    <div className="flex flex-col w-64 max-w-full text-white h-screen fixed left-0 top-0 px-3 pt-4 pb-6 hidden lg:flex">
       <div className="glass flex items-center justify-center h-16 px-4 mb-4">
         <Image
           src="/Images/Logo/cola-logo.png"
